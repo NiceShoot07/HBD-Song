@@ -1,54 +1,82 @@
-/* Add these styles to your style.css file */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  transition: all 0.2s ease-in-out;
+}
 
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: #6c63ff;
+  display: grid;
+  place-items: center;
   height: 100vh;
-  background-color: #f0f8ff; /* Light background for a festive vibe */
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  color: #fff; /* Improved text contrast */
 }
 
 .card {
-  text-align: center; /* Center align text and content inside the card */
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  width: 90%;
+  background: #fdfdfd;
+  border-radius: 4px;
+  height: 85vh;
+  width: 80vw;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adjusted box shadow for depth */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  overflow: hidden;
 }
 
-.birthday {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 20px;
+@media only screen and (min-width: 1000px) {
+  .card {
+    flex-direction: row-reverse;
+  }
+  .card img.birthday {
+    width: 100%;
+    max-width: 50vw;
+    max-height: unset;
+  }
+}
+
+@media only screen and (max-height: 640px) {
+  .card {
+    flex-direction: row-reverse;
+  }
+  .card img.birthday {
+    width: 100%;
+    max-width: 50vw;
+    max-height: unset;
+  }
+}
+
+img.birthday {
+  max-height: 40vh;
 }
 
 .text {
-  margin-bottom: 20px;
-  color: #333333;
-}
-
-.text h1 {
-  color: #ff6347; /* Bright color for the heading */
-}
-
-.text p {
-  line-height: 1.6;
+  padding: 1em;
+  color: #333; /* Adjusted text color */
 }
 
 .muted {
-  color: #999999;
-  font-size: 0.9em;
-}
-
-audio {
-  margin-top: 20px;
+  opacity: 0.8;
 }
 
 .space {
-  height: 10px;
+  height: 100px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body.play-music {
+  animation: fadeIn 2s ease-in-out; /* Adjust the animation duration and timing function as needed */
 }
